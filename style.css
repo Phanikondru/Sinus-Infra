@@ -2,15 +2,15 @@
 :root {
   --primary: #002B5B;
   --warning: #FFA500;
-  --fs-display: 4.5rem;    /* 72px - Hero headings */
-  --fs-h1: 3.5rem;         /* 56px - Section headings */
-  --fs-h2: 2.75rem;        /* 44px - Sub headings */
-  --fs-h3: 2rem;           /* 32px - Card titles */
-  --fs-h4: 1.5rem;         /* 24px - Small headings */
-  --fs-lead: 1.25rem;      /* 20px - Large paragraph */
-  --fs-body: 1rem;         /* 16px - Body text */
-  --fs-small: 0.875rem;    /* 14px - Small text */
-  --fs-xs: 0.75rem;        /* 12px - Extra small text */
+  --fs-display: 4rem;      /* 64px - Hero headings */
+  --fs-h1: 3rem;          /* 48px - Section headings */
+  --fs-h2: 2.5rem;        /* 40px - Sub headings */
+  --fs-h3: 2rem;          /* 32px - Card titles */
+  --fs-h4: 1.25rem;       /* 20px - Small headings */
+  --fs-lead: 1.125rem;    /* 18px - Large paragraph */
+  --fs-body: 1rem;        /* 16px - Body text */
+  --fs-small: 0.875rem;   /* 14px - Small text */
+  --fs-xs: 0.75rem;       /* 12px - Extra small text */
   --text-navy: #002B5B;
 }
 
@@ -21,12 +21,15 @@ body {
   color: #4a4a4a;
   font-size: var(--fs-body);
   line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 /* Hero Section */
@@ -50,29 +53,57 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+/* Add to your existing styles */
+.navbar {
+  height: 70px;
+}
+
+/* Ensure proper mobile menu behavior */
+@media (max-width: 991px) {
+  .navbar {
+    height: auto;
+    min-height: 70px;
+  }
+  
+  .navbar-collapse {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+}
+
 /* Update the content to appear above both overlays */
 .hero .container {
   z-index: 2;
 }
 
 .hero h1 {
+  font-family: 'Lato', sans-serif;
   font-size: var(--fs-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
   line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -0.02em;
   color: var(--primary);
   margin-bottom: 2rem;
 }
 
 .hero p {
+  font-family: 'Inter', sans-serif;
   font-size: var(--fs-lead);
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 }
 
 .hero .btn {
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: var(--fs-body);
+  letter-spacing: -0.01em;
 }
 
 /* Building Dreams Section */
@@ -106,10 +137,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stats-section .display-3 {
+  font-family: 'Lato', sans-serif;
   font-size: var(--fs-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
   line-height: 1;
-  font-weight: 800;
-  letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
 }
 
@@ -163,6 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-title {
+  font-family: 'Lato', sans-serif;
   font-size: var(--fs-h3);
   color: var(--primary);
   font-weight: 700;
@@ -193,11 +226,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  color: #4a4a4a;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: var(--fs-small);
   transition: color 0.3s ease;
   position: relative;
+  letter-spacing: -0.01em;
 }
 
 .nav-link:hover {
@@ -372,20 +406,20 @@ footer a:hover {
 
 @media (max-width: 1200px) {
   :root {
-    --fs-display: 4rem;
-    --fs-h1: 3rem;
-    --fs-h2: 2.5rem;
+    --fs-display: 3.5rem;
+    --fs-h1: 2.75rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.75rem;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --fs-display: 3rem;
-    --fs-h1: 2.5rem;
-    --fs-h2: 2rem;
-    --fs-h3: 1.75rem;
-    --fs-h4: 1.25rem;
-    --fs-lead: 1.125rem;
+    --fs-display: 2.75rem;
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.75rem;
+    --fs-h3: 1.5rem;
+    --fs-lead: 1rem;
   }
   
   .stats-section .display-3 {
