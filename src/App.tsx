@@ -13,6 +13,7 @@ import QualityHSE from './pages/QualityHSE';
 import Careers from './pages/Careers';
 import BudgetCalculator from './pages/BudgetCalculator';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <div className="min-h-screen">
         <Navbar />
+        <ScrollToTopOnNavigate />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
