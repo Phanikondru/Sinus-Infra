@@ -1,20 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
+  const navigate = useNavigate();
+
   const services = [
     {
       title: 'Architecture',
-      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80'
+      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80',
+      path: '/services/architecture'
     },
     {
       title: 'Construction',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80'
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
+      path: '/services/construction'
     },
     {
       title: 'Interior',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80'
+      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80',
+      path: '/services/interior'
     }
   ];
 
@@ -36,7 +42,8 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg group"
+              className="bg-white rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+              onClick={() => navigate(service.path)}
             >
               <div className="relative h-64">
                 <img

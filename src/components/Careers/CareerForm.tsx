@@ -2,6 +2,10 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
+const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const SERVICE_ID = 'YOUR_SERVICE_ID';
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
 const CareerForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
@@ -17,17 +21,17 @@ const CareerForm = () => {
 
     try {
       await emailjs.send(
-        'service_your_service_id', // Replace with your EmailJS service ID
-        'template_your_template_id', // Replace with your EmailJS template ID
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
-          to_email: 'phanikondru@gmail.com',
+          to_email: 'info@sinuosinfra.in',
           first_name: formData.get('firstName'),
           last_name: formData.get('lastName'),
           mobile: formData.get('mobile'),
           resume: file ? file.name : 'No resume attached',
           message: formData.get('message')
         },
-        'your_public_key' // Replace with your EmailJS public key
+        PUBLIC_KEY
       );
 
       setSubmitStatus('success');
@@ -126,10 +130,10 @@ const CareerForm = () => {
               </button>
 
               {submitStatus === 'success' && (
-                <p className="mt-4 text-green-600 text-center">Application submitted successfully!</p>
+                <p className="mt-4 text-green-600 text-center">Thank you! Your application has been submitted successfully.</p>
               )}
               {submitStatus === 'error' && (
-                <p className="mt-4 text-red-600 text-center">Failed to submit application. Please try again.</p>
+                <p className="mt-4 text-red-600 text-center">There was an error submitting your application. Please try again or contact us directly.</p>
               )}
             </div>
           </form>

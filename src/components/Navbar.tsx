@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { Menu, X, Home, Info, Briefcase, DollarSign, Star, MessageSquare, Calculator, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './common/Logo';
+import CountryFlags from './common/CountryFlags';
 import Button from './common/Button';
 
 const Navbar = () => {
@@ -30,12 +31,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 py-4">
+    <>
+      <CountryFlags />
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 top-[40px] ${
+          scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <motion.div 
             className="flex items-center"
@@ -87,7 +90,6 @@ const Navbar = () => {
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
-      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -132,7 +134,9 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 };
 

@@ -37,3 +37,33 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Google Translate Styles */
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: white !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value {
+  color: white !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span {
+  border: none !important;
+  color: white !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}

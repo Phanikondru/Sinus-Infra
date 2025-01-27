@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
+const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const SERVICE_ID = 'YOUR_SERVICE_ID';
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -30,10 +34,10 @@ const ContactForm = () => {
 
     try {
       await emailjs.send(
-        'service_your_service_id', // Replace with your EmailJS service ID
-        'template_your_template_id', // Replace with your EmailJS template ID
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
-          to_email: 'phanikondru@gmail.com',
+          to_email: 'info@sinuosinfra.in',
           from_name: formData.firstName,
           company: formData.companyName,
           email: formData.email,
@@ -42,7 +46,7 @@ const ContactForm = () => {
           best_time: formData.bestTime,
           message: formData.message
         },
-        'your_public_key' // Replace with your EmailJS public key
+        PUBLIC_KEY
       );
 
       setSubmitStatus('success');
@@ -63,14 +67,16 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="pb-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white p-8 rounded-lg shadow-sm"
-        >
-          <div className="mb-8">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="bg-white p-8 rounded-lg shadow-lg"
+    >
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold mb-2">Send us a message</h2>
+        <p className="text-gray-600">Fill out the form below and we'll get back to you shortly.</p>
+      </div>
+          <div className="mb-8 pb-6 border-b border-gray-100">
             <label className="inline-flex items-center">
               <input
                 type="radio"
@@ -193,7 +199,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`bg-[#FF8C00] text-white px-8 py-3 rounded-md hover:bg-[#e67e00] transition-colors ${
+                className={`w-full bg-[#FF8C00] text-white px-8 py-4 rounded-md hover:bg-[#e67e00] transition-colors text-lg font-medium ${
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
@@ -201,16 +207,14 @@ const ContactForm = () => {
               </button>
 
               {submitStatus === 'success' && (
-                <p className="mt-4 text-green-600">Message sent successfully!</p>
+                <p className="mt-4 text-green-600">Thank you! Your message has been sent successfully.</p>
               )}
               {submitStatus === 'error' && (
-                <p className="mt-4 text-red-600">Failed to send message. Please try again.</p>
+                <p className="mt-4 text-red-600">There was an error sending your message. Please try again or contact us directly.</p>
               )}
             </div>
           </form>
-        </motion.div>
-      </div>
-    </section>
+    </motion.div>
   );
 };
 

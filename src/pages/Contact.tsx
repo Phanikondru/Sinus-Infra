@@ -6,7 +6,6 @@ const Contact = () => {
   return (
     <main className="pt-16">
       <ContactHero />
-      <ContactForm />
     </main>
   );
 };
